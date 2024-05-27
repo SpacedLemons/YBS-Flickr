@@ -2,7 +2,7 @@ import SwiftUI
 
 struct FullScreenPhotoView: View {
     let photo: Item
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.dismiss) var dismiss
     @State private var currentScale = 1.0
     @State private var finalScale = 1.0
     
@@ -32,7 +32,5 @@ struct FullScreenPhotoView: View {
             }
         }
         .background(Color.backgroundGray)
-    }
-    
-    private func dismiss() { presentationMode.wrappedValue.dismiss() }
+    }    
 }

@@ -12,8 +12,8 @@ struct Item: Decodable, Identifiable {
     let authorID: String
     let tags: String
 
-    var imageURL: String { return media.url }
-    var iconURL: String { return "https://www.flickr.com/buddyicons/\(authorID).jpg" }
+    var imageURL: String { media.url }
+    var iconURL: String { "https://www.flickr.com/buddyicons/\(authorID).jpg" }
     
     enum CodingKeys: String, CodingKey {
         case title

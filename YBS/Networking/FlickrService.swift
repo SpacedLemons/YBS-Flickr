@@ -3,6 +3,7 @@ import Foundation
 @MainActor
 final class FlickrService: ObservableObject {
     @Published private(set) var items: [Item] = []
+    private let networkManager = NetworkManager()
     
     func fetchPhotos() async {
         let parameters = [
@@ -12,7 +13,7 @@ final class FlickrService: ObservableObject {
         ]
         
         let url = Endpoint.with(parameters)
-        if let response: PhotosResponse = await NetworkManager.fetch(from: url) {
+        if let response: PhotosResponse = await networkManager.fetch(from: url) {
             self.items = response.items
         }
     }
@@ -26,7 +27,7 @@ final class FlickrService: ObservableObject {
         ]
         
         let url = Endpoint.with(parameters)
-        if let response: PhotosResponse = await NetworkManager.fetch(from: url) {
+        if let response: PhotosResponse = await networkManager.fetch(from: url) {
             self.items = response.items
             return response.items
         }
@@ -45,7 +46,7 @@ final class FlickrService: ObservableObject {
         ]
         
         let url = Endpoint.with(parameters)
-        if let response: PhotosResponse = await NetworkManager.fetch(from: url) {
+        if let response: PhotosResponse = await networkManager.fetch(from: url) {
             self.items = response.items
             return response.items
         }
@@ -61,7 +62,7 @@ final class FlickrService: ObservableObject {
         ]
         
         let url = Endpoint.with(parameters)
-        if let response: PhotosResponse = await NetworkManager.fetch(from: url) {
+        if let response: PhotosResponse = await networkManager.fetch(from: url) {
             self.items = response.items
             return response.items
         }
@@ -77,7 +78,7 @@ final class FlickrService: ObservableObject {
         ]
         
         let url = Endpoint.with(parameters)
-        if let response: PhotosResponse = await NetworkManager.fetch(from: url) {
+        if let response: PhotosResponse = await networkManager.fetch(from: url) {
             return response.items
         }
         return []

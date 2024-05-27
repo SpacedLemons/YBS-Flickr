@@ -22,7 +22,7 @@ struct PhotoCard: View {
                 }
                 .disabled(item.tags.isEmpty)
             }
-            .padding([.leading, .trailing, .bottom, .top], 14)
+            .padding(14)
         }
         CustomDivider()
     }

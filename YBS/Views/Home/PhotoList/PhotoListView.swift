@@ -26,9 +26,7 @@ struct PhotoListView: View {
             .sheet(item: $viewModel.selectedTags) { tagWrapper in
                 TagsSheetView(tags: tagWrapper.tags)
             }
-            .fullScreenCover(item: $viewModel.selectedPhoto) { photo in
-                PhotoDetailView(item: photo)
-            }
+            .fullScreenCover(item: $viewModel.selectedPhoto, content: PhotoDetailView.init)
         }
     }
 }

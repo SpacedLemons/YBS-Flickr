@@ -36,9 +36,9 @@ struct PhotoDetailContent: View {
     }
     
     private func processDescription() {
-        DispatchQueue.global(qos: .userInitiated).async {
+        DispatchQueue.globalAsync(qos: .userInitiated) {
             let stripped = stripPostedText(from: item.description.stripHTML())
-            DispatchQueue.main.async {
+            DispatchQueue.asyncMain {
                 strippedDescription = stripped
             }
         }

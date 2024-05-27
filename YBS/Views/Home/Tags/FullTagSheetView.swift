@@ -13,7 +13,7 @@ struct FullTagSheet: View {
                 .overlay(
                     Rectangle()
                         .stroke(Color.black, lineWidth: 4)
-                        .background(Color.gray.opacity(0.2))
+                        .background(Color.backgroundGray)
                 )
                 .padding()
             Spacer()
