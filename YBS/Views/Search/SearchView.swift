@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SearchView: View {
-    @StateObject private var viewModel = SearchViewModel()
+    @StateObject private var viewModel = SearchViewModel(service: FlickrService())
     @State private var isShowingSearchParameters = false
     
     var body: some View {

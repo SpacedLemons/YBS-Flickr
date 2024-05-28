@@ -10,9 +10,12 @@
 		0E4D90A22BFB5F0B0055D358 /* YBSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D90A12BFB5F0B0055D358 /* YBSApp.swift */; };
 		0E4D90A42BFB5F0B0055D358 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D90A32BFB5F0B0055D358 /* TabBarView.swift */; };
 		0E4D90A62BFB5F0C0055D358 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E4D90A52BFB5F0C0055D358 /* Assets.xcassets */; };
-		0E4D90B42BFB5F0C0055D358 /* StringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D90B32BFB5F0C0055D358 /* StringTests.swift */; };
+		0E4D90B42BFB5F0C0055D358 /* StringTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D90B32BFB5F0C0055D358 /* StringTest.swift */; };
 		0E4D90BE2BFB5F0C0055D358 /* YBSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D90BD2BFB5F0C0055D358 /* YBSUITests.swift */; };
 		0E4D90C02BFB5F0C0055D358 /* YBSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4D90BF2BFB5F0C0055D358 /* YBSUITestsLaunchTests.swift */; };
+		0E58BC772C05E6BB00E9D1E8 /* PhotosViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E58BC762C05E6BB00E9D1E8 /* PhotosViewModelTests.swift */; };
+		0E58BC792C05E73900E9D1E8 /* MockFlickerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E58BC782C05E73900E9D1E8 /* MockFlickerService.swift */; };
+		0E58BC7D2C06133400E9D1E8 /* DismissButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E58BC7C2C06133400E9D1E8 /* DismissButton.swift */; };
 		0E6AE46E2C032D7B00C1585D /* TagWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6AE46D2C032D7B00C1585D /* TagWrapper.swift */; };
 		0E6AE4702C032F2300C1585D /* PhotoDetailContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6AE46F2C032F2300C1585D /* PhotoDetailContentView.swift */; };
 		0E6AE4752C03393E00C1585D /* TitleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E6AE4742C03393D00C1585D /* TitleSection.swift */; };
@@ -92,10 +95,13 @@
 		0E4D90A52BFB5F0C0055D358 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E4D90A72BFB5F0C0055D358 /* YBS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = YBS.entitlements; sourceTree = "<group>"; };
 		0E4D90AF2BFB5F0C0055D358 /* YBSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YBSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0E4D90B32BFB5F0C0055D358 /* StringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTests.swift; sourceTree = "<group>"; };
+		0E4D90B32BFB5F0C0055D358 /* StringTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTest.swift; sourceTree = "<group>"; };
 		0E4D90B92BFB5F0C0055D358 /* YBSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YBSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E4D90BD2BFB5F0C0055D358 /* YBSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YBSUITests.swift; sourceTree = "<group>"; };
 		0E4D90BF2BFB5F0C0055D358 /* YBSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YBSUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		0E58BC762C05E6BB00E9D1E8 /* PhotosViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewModelTests.swift; sourceTree = "<group>"; };
+		0E58BC782C05E73900E9D1E8 /* MockFlickerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockFlickerService.swift; sourceTree = "<group>"; };
+		0E58BC7C2C06133400E9D1E8 /* DismissButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissButton.swift; sourceTree = "<group>"; };
 		0E6AE46D2C032D7B00C1585D /* TagWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagWrapper.swift; sourceTree = "<group>"; };
 		0E6AE46F2C032F2300C1585D /* PhotoDetailContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailContentView.swift; sourceTree = "<group>"; };
 		0E6AE4742C03393D00C1585D /* TitleSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSection.swift; sourceTree = "<group>"; };
@@ -200,7 +206,9 @@
 		0E4D90B22BFB5F0C0055D358 /* YBSTests */ = {
 			isa = PBXGroup;
 			children = (
-				0E4D90B32BFB5F0C0055D358 /* StringTests.swift */,
+				0E4D90B32BFB5F0C0055D358 /* StringTest.swift */,
+				0E58BC762C05E6BB00E9D1E8 /* PhotosViewModelTests.swift */,
+				0E58BC782C05E73900E9D1E8 /* MockFlickerService.swift */,
 			);
 			path = YBSTests;
 			sourceTree = "<group>";
@@ -325,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				0EC5B6832BFF505900B6D470 /* PhotoGridView.swift */,
+				0E58BC7C2C06133400E9D1E8 /* DismissButton.swift */,
 				0EAC4AC22C01DED5005ED55A /* CustomDivider.swift */,
 			);
 			path = "Supporting Views";
@@ -510,6 +519,7 @@
 				0E4D90A42BFB5F0B0055D358 /* TabBarView.swift in Sources */,
 				0EB014B02BFD1BA700EE329F /* ImageSpecificTagView.swift in Sources */,
 				0EC5B6952BFFB12000B6D470 /* TagsSection.swift in Sources */,
+				0E58BC7D2C06133400E9D1E8 /* DismissButton.swift in Sources */,
 				0EC5B6932BFFB10800B6D470 /* AuthorSection.swift in Sources */,
 				0EB014962BFBE19900EE329F /* FrameSquare.swift in Sources */,
 				0E7D7B672C034FA500AD29D3 /* Media.swift in Sources */,
@@ -541,7 +551,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E4D90B42BFB5F0C0055D358 /* StringTests.swift in Sources */,
+				0E4D90B42BFB5F0C0055D358 /* StringTest.swift in Sources */,
+				0E58BC792C05E73900E9D1E8 /* MockFlickerService.swift in Sources */,
+				0E58BC772C05E6BB00E9D1E8 /* PhotosViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

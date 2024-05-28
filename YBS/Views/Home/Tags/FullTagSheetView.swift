@@ -10,10 +10,10 @@ struct FullTagSheet: View {
                 .font(.caption).bold()
                 .padding(8)
                 .padding(.horizontal, 8)
+                .background(Color.backgroundGray)
                 .overlay(
                     Rectangle()
                         .stroke(Color.black, lineWidth: 4)
-                        .background(Color.backgroundGray)
                 )
                 .padding()
             Spacer()

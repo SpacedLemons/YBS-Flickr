@@ -1,15 +1,25 @@
 import Foundation
 
 @MainActor
-final class FlickrService: ObservableObject {
+protocol FlickrServiceProtocol {
+    var items: [Item] { get }
+    
+    func fetchPhotos() async throws
+    func fetchSearchPhotos(title: String) async throws -> [Item]
+    func searchPhotos(tags: String, matchAllTags: Bool, safeSearch: Int) async throws -> [Item]
+    func searchPhotosByTag(tag: String) async throws -> [Item]
+    func fetchUserPhotos(userID: String) async throws -> [Item]
+}
+
+@MainActor
+final class FlickrService: FlickrServiceProtocol, ObservableObject {
     @Published private(set) var items: [Item] = []
     private let networkManager = NetworkManager()
     
     func fetchPhotos() async {
         let parameters = [
             "format": "json",
-            "nojsoncallback": "1",
-            "safe_search": "1"
+            "nojsoncallback": "1"
         ]
         
         let url = Endpoint.with(parameters)
@@ -22,7 +32,6 @@ final class FlickrService: ObservableObject {
         let parameters = [
             "format": "json",
             "nojsoncallback": "1",
-            "safe_search": "1",
             "text": title
         ]
         
@@ -34,12 +43,11 @@ final class FlickrService: ObservableObject {
         return []
     }
     
-    func searchPhotos(searchText: String, tags: String, matchAllTags: Bool, safeSearch: Int) async -> [Item] {
+    func searchPhotos(tags: String, matchAllTags: Bool, safeSearch: Int) async -> [Item] {
         let tagMode = matchAllTags ? "all" : "any"
         let parameters = [
             "format": "json",
             "nojsoncallback": "1",
-            "text": searchText,
             "tags": tags,
             "tagmode": tagMode,
             "safe_search": "\(safeSearch)"
@@ -57,8 +65,7 @@ final class FlickrService: ObservableObject {
         let parameters = [
             "format": "json",
             "nojsoncallback": "1",
-            "tags": tag,
-            "safe_search": "1"
+            "tags": tag
         ]
         
         let url = Endpoint.with(parameters)
@@ -71,10 +78,9 @@ final class FlickrService: ObservableObject {
     
     func fetchUserPhotos(userID: String) async -> [Item] {
         let parameters = [
-            "id": userID,
             "format": "json",
             "nojsoncallback": "1",
-            "safe_search": "1"
+            "id": userID,
         ]
         
         let url = Endpoint.with(parameters)

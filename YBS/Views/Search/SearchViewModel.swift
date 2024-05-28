@@ -8,22 +8,32 @@ final class SearchViewModel: ObservableObject {
     @Published var safeSearch = 1
     @Published var lastSearchType = ""
     @Published var lastSearchValue = ""
+    @Published var errorMessage: String? = nil
     
-    @MainActor private let service = FlickrService()
+    @MainActor private let service: FlickrServiceProtocol
+    
+    init(service: FlickrServiceProtocol) {
+        self.service = service
+    }
 
     @MainActor
     func performSearch() async {
         lastSearchType = username.isEmpty ? "tag" : "user"
         lastSearchValue = username.isEmpty ? tags : username
-        if !username.isEmpty {
-            items = await service.fetchUserPhotos(userID: username)
-        } else {
-            items = await service.searchPhotos(
-                searchText: "",
-                tags: tags,
-                matchAllTags: matchAllTags,
-                safeSearch: safeSearch
-            )
+        do {
+            if !username.isEmpty {
+                items = try await service.fetchUserPhotos(userID: username)
+            } else {
+                items = try await service.searchPhotos(
+                    tags: tags,
+                    matchAllTags: matchAllTags,
+                    safeSearch: safeSearch
+                )
+            }
+            errorMessage = nil
+        } catch {
+            errorMessage = error.localizedDescription
+            items = []
         }
     }
 }

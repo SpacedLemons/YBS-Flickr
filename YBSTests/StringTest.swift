@@ -1,7 +1,7 @@
 import XCTest
 @testable import YBS
 
-final class StringExtensionTests: XCTestCase {
+final class StringTest: XCTestCase {
 
     func testStripHTML() {
         // Given

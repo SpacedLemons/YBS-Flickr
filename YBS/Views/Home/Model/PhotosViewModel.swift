@@ -9,19 +9,50 @@ final class PhotosViewModel: ObservableObject {
     @Published var isShowingPhotoDetails = false
     @Published var selectedPhoto: Item?
     @Published var userPhotos: [Item] = []
-    
-    private let service = FlickrService()
+    @Published var errorMessage: String?
 
-    init() { Task { await fetchPhotos() } }
+    private let service: FlickrServiceProtocol
+    private var isSearchingPhotosByTag = false
+    
+    init(service: FlickrServiceProtocol) {
+        self.service = service
+        Task { await fetchPhotos() }
+    }
     
     func fetchPhotos() async {
-        await service.fetchPhotos()
-        items = service.items
+        guard !isSearchingPhotosByTag else { return }
+        do {
+            try await service.fetchPhotos()
+            items = service.items
+            errorMessage = nil
+        } catch {
+            errorMessage = error.localizedDescription
+            items = []
+        }
     }
 
-    func fetchUserPhotos(userID: String) async { userPhotos = await service.fetchUserPhotos(userID: userID) }
-
-    func searchPhotosByTag(tag: String) async { items = await service.searchPhotosByTag(tag: tag) }
+    func fetchUserPhotos(userID: String) async {
+        do {
+            userPhotos = try await service.fetchUserPhotos(userID: userID)
+            errorMessage = nil
+        } catch {
+            errorMessage = error.localizedDescription
+            userPhotos = []
+        }
+    }
+    
+    func searchPhotosByTag(tag: String) async {
+        isSearchingPhotosByTag = true
+        do {
+            items = try await service.searchPhotosByTag(tag: tag)
+            errorMessage = nil
+            print("Fetched items tag")
+        } catch {
+            errorMessage = error.localizedDescription
+            items = []
+        }
+        isSearchingPhotosByTag = false
+    }
 
     func selectPhoto(_ photo: Item) {
         selectedPhoto = photo
@@ -35,3 +66,4 @@ final class PhotosViewModel: ObservableObject {
     
     func selectTags(_ tags: String) { selectedTags = TagWrapper(tags: tags) }
 }
+    

@@ -13,10 +13,10 @@ struct TagStyleView: View {
                     .padding(8)
                     .padding(.horizontal, 8)
                     .frame(maxWidth: .infinity)
+                    .background(Color.backgroundGray)
                     .overlay(
                         Rectangle()
                             .stroke(Color.black, lineWidth: 4)
-                            .background(Color.gray.opacity(0.2))
                     )
                     .onTapGesture { navigateToTagView = true }
                     .onLongPressGesture { if isTruncated(tag) { showFullTagSheet.toggle() } }

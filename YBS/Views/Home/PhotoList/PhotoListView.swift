@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct PhotoListView: View {
-    @StateObject private var viewModel = PhotosViewModel()
+    @StateObject private var viewModel = PhotosViewModel(service: FlickrService())
         
     var body: some View {
         NavigationView {
