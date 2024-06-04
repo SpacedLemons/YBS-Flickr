@@ -20,7 +20,6 @@ struct PhotoListView: View {
                         userID: viewModel.selectedUserID ?? "",
                         viewModel: viewModel
                     )
-                    .environmentObject(viewModel)
                 }
             }
             .sheet(item: $viewModel.selectedTags) { tagWrapper in

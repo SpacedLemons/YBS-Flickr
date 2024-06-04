@@ -10,7 +10,6 @@ struct TabBarView: View {
             ForEach(TabBarItem.allCases, id: \.self) { item in
                 viewForTab(item)
                     .tabItem { Label(item.title, systemImage: item.icon) }
-                    .tag(item)
             }
         }
         .background(Color.backgroundGray)

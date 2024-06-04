@@ -66,4 +66,3 @@ final class PhotosViewModel: ObservableObject {
     
     func selectTags(_ tags: String) { selectedTags = TagWrapper(tags: tags) }
 }
-    

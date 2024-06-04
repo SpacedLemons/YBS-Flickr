@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ImageSpecificTagView: View {
     let tag: String
-    @StateObject var viewModel = PhotosViewModel(service: FlickrService())
+    @ObservedObject var viewModel = PhotosViewModel(service: FlickrService())
 
     var body: some View {
         NavigationView {

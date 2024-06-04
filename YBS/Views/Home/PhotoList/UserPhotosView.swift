@@ -8,8 +8,7 @@ struct UserPhotosView: View {
     
     var body: some View {
         VStack {
-            Text("\(userID)'s photos")
-                .font(.title3)
+            Text("\(userID)'s photos").font(.title3)
                 .bold()
                 .padding(.top, 16)
             if userPhotos.isEmpty {

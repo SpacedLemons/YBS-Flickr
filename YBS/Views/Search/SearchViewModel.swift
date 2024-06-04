@@ -4,6 +4,7 @@ final class SearchViewModel: ObservableObject {
     @Published var tags = "Yorkshire"
     @Published var username = ""
     @Published var matchAllTags = false
+    @Published var isSearchParametersPresented = false
     @Published var items: [Item] = []
     @Published var safeSearch = 1
     @Published var lastSearchType = ""

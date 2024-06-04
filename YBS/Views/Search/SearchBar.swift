@@ -2,15 +2,15 @@ import SwiftUI
 
 struct SearchBar: View {
     @Binding var text: String
-    let onTap: () -> Void
-
+    @ObservedObject var viewModel: SearchViewModel
+    
     var body: some View {
         HStack {
             TextField("Search", text: .constant(text))
                 .disabled(true)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(.leading, 8)
-            Button(action: onTap) {
+            Button(action: { viewModel.isSearchParametersPresented.toggle() }) {
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(.gray)
                     .padding(.trailing, 8)
@@ -19,6 +19,8 @@ struct SearchBar: View {
         .background(Color(.systemGray6))
         .cornerRadius(10)
         .contentShape(Rectangle())
-        .onTapGesture { onTap() }
+        .fullScreenCover(isPresented: $viewModel.isSearchParametersPresented) {
+            SearchParametersView(viewModel: viewModel)
+        }
     }
 }

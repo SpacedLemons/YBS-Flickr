@@ -5,8 +5,7 @@ struct TitleSection: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 16) {
-            Text(title)
-                .font(.title2)
+            Text(title).font(.title2)
                 .bold()
             Divider()
                 .frame(height: 4)
